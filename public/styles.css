@@ -1,0 +1,30 @@
+div {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.ocean {
+	margin-top: 5px;
+	width: 95%;
+	z-index: 1
+}
+
+.animals {
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	width: 90%;
+	margin-top: 100px;
+	z-index: 2
+}
+
+.animal {
+	width: 33.3%;
+}
+
+#fact {
+	margin-top: 20px;
+	width: 80%;
+	font-size: 4vw;
+}
