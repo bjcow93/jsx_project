@@ -5,9 +5,17 @@ div {
 }
 
 .ocean {
-	margin-top: 5px;
+	position: absolute;
+	margin-top: 80px;
 	width: 95%;
 	z-index: 1
+}
+
+#fact {
+	margin-top: 40px;
+	width: 80%;
+	font-size: 4vw;
+	z-index: 2;
 }
 
 .animals {
@@ -15,7 +23,7 @@ div {
 	flex-direction: row;
 	position: absolute;
 	width: 90%;
-	margin-top: 100px;
+	margin-top: 240px;
 	z-index: 2
 }
 
@@ -23,8 +31,8 @@ div {
 	width: 33.3%;
 }
 
-#fact {
-	margin-top: 20px;
-	width: 80%;
-	font-size: 4vw;
+@media only screen and (max-width: 670px) {
+	.animals {
+		margin-top: 180px;
+	}
 }

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 const title = '';
 
+const haveBackground = true;
 const background = <img
   className="ocean"
   alt="ocean"
@@ -48,14 +49,12 @@ const animalFacts = (
   <div>
 
     <h1>{title === '' ? 'Click an animal for a fun fact!' : title}</h1>
-    
-    {background}
-
+    <div id="fact"></div>
+    {haveBackground && background}
     <div className="animals">
       {images}
     </div>
 
-    <div id="fact"></div>
   </div>
 );
 
