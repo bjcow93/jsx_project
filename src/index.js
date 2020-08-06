@@ -48,6 +48,12 @@ function displayFact(e) {
   const funFact = selectedAnimal.facts[optionIndex];
 
   document.getElementById('fact').innerHTML = funFact;
+
+  // Depending on the level of accessibility we're striving for, I could add a 
+  // `tabIndex` attribute to the `<p>` tag, so <p tabIndex=0 id='fact'></p>.
+  // Then in this function I could add `document.getElementById('fact).focus()`
+  // so that when an animal is clicked, the screen reader will read the fact.
+  // I'm not sure if that's very relevant to this lesson material though.
 };
 
 const animalFacts = (
@@ -66,6 +72,8 @@ ReactDOM.render(
   animalFacts,
   document.getElementById('root')
 );
+
+//Depending on ho
 
 
 //toggle background extra credit maybe
