@@ -4,11 +4,13 @@ import ReactDOM from 'react-dom';
 const title = '';
 
 const showBackground = true;
-const background = <img
-  className='background'
-  alt='ocean'
-  src='/images/ocean.jpg'
-/>;
+const background = (
+  <img
+    className='background'
+    alt='ocean'
+    src='/images/ocean.jpg'
+  />
+);
 
 const animals = {
   dolphin: {
@@ -29,15 +31,15 @@ const images = [];
 for (const animal in animals) {
   images.push(
   <img
-    key={animal}
     className='animal'
     alt={animal}
     src={animals[animal].image}
     aria-label={animal}
     role='button'
     onClick={displayFact}
-  />)
-}
+  />
+  )
+};
 
 function displayFact(e) {
   const selectedAnimal = animals[e.target.alt];
@@ -45,7 +47,7 @@ function displayFact(e) {
   const funFact = selectedAnimal.facts[optionIndex];
 
   document.getElementById('fact').innerHTML = funFact;
-}
+};
 
 const animalFacts = (
   <div>
