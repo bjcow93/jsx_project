@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const title = "Click an animal for a fun fact!";
-const background = '/images/ocean.jpg';
+const title = '';
+
+const background = <img
+  className="ocean"
+  alt="ocean"
+  src='/images/ocean.jpg'
+/>;
 
 const animals = {
   dolphin: {
@@ -20,7 +25,6 @@ const animals = {
 };
 
 const images = [];
-
 for (const animal in animals) {
   images.push(
   <img
@@ -33,18 +37,19 @@ for (const animal in animals) {
 }
 
 function displayFact(e) {
-  const clicked = e.target.alt;
-  const option = Math.floor(Math.random() * animals[clicked].facts.length);
-  document.getElementById("fact").innerHTML = animals[clicked].facts[option];
-}
+  const selectedAnimal = animals[e.target.alt];
+  const optionIndex = Math.floor(Math.random() * selectedAnimal.facts.length);
+  const funFact = selectedAnimal.facts[optionIndex];
 
+  document.getElementById("fact").innerHTML = funFact;
+}
 
 const animalFacts = (
   <div>
 
-    <h1>{title}</h1>
-    <img className="ocean" alt="ocean" src={background === "" ? '/images/ocean2.jpg' : background} />;
-    {/* <img className="ocean" alt="ocean" src={background || '/images/ocean2.jpg'} />; */}
+    <h1>{title === '' ? 'Click an animal for a fun fact!' : title}</h1>
+    
+    {background}
 
     <div className="animals">
       {images}
