@@ -73,7 +73,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-//Depending on ho
-
-
 //toggle background extra credit maybe
