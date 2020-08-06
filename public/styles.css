@@ -12,6 +12,8 @@ div {
 }
 
 #fact {
+	display: flex;
+	justify-content: center;
 	margin-top: 40px;
 	width: 80%;
 	font-size: 4vw;
