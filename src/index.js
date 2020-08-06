@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const title = <h1>Click an animal for a fun fact!</h1>;
-let background = '/images/ocean.jpg';
+const title = "Click an animal for a fun fact!";
+const background = '/images/ocean.jpg';
 
 const animals = {
   dolphin: {
@@ -19,10 +19,22 @@ const animals = {
   }
 };
 
+const images = [];
+
+for (const animal in animals) {
+  images.push(
+  <img
+    key={animal}
+    className="animal"
+    alt={animal}
+    src={animals[animal].image}
+    onClick={displayFact}
+  />)
+}
 
 function displayFact(e) {
   const clicked = e.target.alt;
-  const option = Math.random() < 0.5 ? 0 : 1;
+  const option = Math.floor(Math.random() * animals[clicked].facts.length);
   document.getElementById("fact").innerHTML = animals[clicked].facts[option];
 }
 
@@ -30,20 +42,12 @@ function displayFact(e) {
 const animalFacts = (
   <div>
 
-    {title}
-    <img className="ocean" alt="ocean" src={background ? background : '/images/ocean2.jpg'} />;
-
+    <h1>{title}</h1>
+    <img className="ocean" alt="ocean" src={background === "" ? '/images/ocean2.jpg' : background} />;
+    {/* <img className="ocean" alt="ocean" src={background || '/images/ocean2.jpg'} />; */}
 
     <div className="animals">
-      {Object.keys(animals).map((animal, idx) => (
-        <img
-          key={idx}
-          className="animal"
-          alt={animal}
-          src={animals[animal].image}
-          onClick={displayFact}
-        />
-      ))}
+      {images}
     </div>
 
     <div id="fact"></div>
