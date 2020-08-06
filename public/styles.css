@@ -4,7 +4,7 @@ div {
 	flex-direction: column;
 }
 
-.ocean {
+.background {
 	position: absolute;
 	margin-top: 80px;
 	width: 95%;

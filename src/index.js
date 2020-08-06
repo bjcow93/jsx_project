@@ -5,7 +5,7 @@ const title = '';
 
 const showBackground = true;
 const background = <img
-  className="ocean"
+  className="background"
   alt="ocean"
   src='/images/ocean.jpg'
 />;
@@ -33,6 +33,8 @@ for (const animal in animals) {
     className="animal"
     alt={animal}
     src={animals[animal].image}
+    aria-label={animal}
+    role="button"
     onClick={displayFact}
   />)
 }
