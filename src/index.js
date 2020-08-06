@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 const title = '';
 
-const haveBackground = true;
+const showBackground = true;
 const background = <img
   className="ocean"
   alt="ocean"
@@ -47,14 +47,12 @@ function displayFact(e) {
 
 const animalFacts = (
   <div>
-
     <h1>{title === '' ? 'Click an animal for a fun fact!' : title}</h1>
     <div id="fact"></div>
-    {haveBackground && background}
+    {showBackground && background}
     <div className="animals">
       {images}
     </div>
-
   </div>
 );
 
