@@ -1,38 +1,37 @@
 // Task:
-// Now that we have our animals displaying on the screen, let's add an event
-// listener that will randomly select a fact from the clicked animal's array of
-// facts that we have stored in `animals`.
+// Let's add one last feature to our awesome app! Let's add a `showBackground` 
+// constant that will hold a Boolean value. If it's set to `true`, 
+// the background will show. If it's set to false, the background will be blank.
 
-// Between `animals` and `images`, let's write a function and name it
-// `displayFact`. We'll need to pass the event, which we'll call `e`, as an
-// argument.
+// Above `background`, create a `showBackground` constant and set its value to
+// `false`.
 
-// `e.target.alt` will be used to grab the name of the animal that was clicked
-// on. We can use this to key into our `animals` object and grab the animal's
-// information. Let's declare a `selectedAnimal` constant, and set its value to
-// `animals[e.target.alt]`
+// In `animalFacts`, in place of where we currently have `{background}`, use 
+// the `&&` operator that we learned about in the lesson to implement the 
+// conditional.
 
-// On the next line, create an `optionIndex` constant. Use the following code
-// as its value:
-    // Math.floor(Math.random() * selectedAnimal.facts.length)
-// This will allow us to randomly generate a number based on the length of the
-// array of the selected animal's facts.
+// Toggle the value of `showBackground` between`true` and`false` and run the
+// code to see if you got it working!
 
-// Finally, underneath this, create a `funFact` constant. As its value, use the
-// index we generate from `optionIndex` to grab a fact from the selected
-// animal's `facts` key in `animals`.
+// BONUS:
+// In addition to the AND `&&` operator, we can use the OR `||` operator. Given
+// a list of variables or expressions, `||` will return the value of the first
+// one whose boolean evaluates to `true`.
 
+// Considering the boolean of an empty string is `false` can you think of a way
+// to use`||` to replace the ternary operator in the header?
 
 
 
 // Hint:
-// Above `images`:
-    // function displayFact(e) {
-    //     const selectedAnimal = animals[e.target.alt];
-    //     const optionIndex = Math.floor(Math.random() * selectedAnimal.facts.length);
-    //     const funFact = selectedAnimal.facts[optionIndex];
-    // };
+// Place this above `background`:
+//      const showBackground = true;
 
+// In `animalFacts`, replace `{background}` with this:
+    // { showBackground && background }
+
+// In the header:
+    // <h1>{title || 'Click an animal for a fun fact!'}</h1>
 
 
 
@@ -42,6 +41,7 @@ import ReactDOM from 'react-dom';
 
 const title = '';
 
+const showBackground = true;
 const background = (
     <img
         className='background'
@@ -69,6 +69,8 @@ function displayFact(e) {
     const selectedAnimal = animals[e.target.alt];
     const optionIndex = Math.floor(Math.random() * selectedAnimal.facts.length);
     const funFact = selectedAnimal.facts[optionIndex];
+
+    document.getElementById('fact').innerHTML = funFact;
 };
 
 const images = [];
@@ -81,14 +83,16 @@ for (const animal in animals) {
             src={animals[animal].image}
             aria-label={animal}
             role='button'
+            onClick={displayFact}
         />
     )
 };
 
 const animalFacts = (
     <div>
-        <h1>{title === '' ? 'Click an animal for a fun fact!' : title}</h1>
-        {background}
+        <h1>{title || 'Click an animal for a fun fact!'}</h1>
+        {showBackground && background}
+        <p id='fact'></p>
         <div className='animals'>
             {images}
         </div>

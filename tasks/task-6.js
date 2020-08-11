@@ -1,20 +1,33 @@
 // Task:
+// Now let's add a background!
+ 
+// Underneath `title`, create a constant named `background`, and set it's value
+// to an `<image />` JSX element.
+
+// Now let's give it some attributes!
+//      * Give it a class of 'background'
+//      * Let's use 'ocean' for `alt`. 
+//      * Finally, use '/images/ocean.jpg' as the value of`src`.
+
 
 
 // Hint:
-// const animalFacts = (
-//     <div>
-//         <h1>{title}</h1>
-//         {background}
-//     </div>
-// );
+// Underneath `title`:
+    // const background = (
+    //     <img
+    //         className='background'
+    //         alt='ocean'
+    //         src='/images/ocean.jpg'
+    //     />
+    // );
+
 
 
 // Solution code:
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const title = "Click an animal for a fun fact!";
+const title = '';
 
 const background = (
     <img
@@ -26,13 +39,13 @@ const background = (
 
 const animalFacts = (
     <div>
-        <h1>{title}</h1>
-        {background}
+        <h1>{title === '' ? 'Click an animal for a fun fact!' : title}</h1>
     </div>
 );
 
+
 ReactDOM.render(
-        animalFacts,
-        document.getElementById('root')
-    );
+    animalFacts,
+    document.getElementById('root')
+);
 

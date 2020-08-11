@@ -1,38 +1,33 @@
 // Task:
-// Now that we have our animals displaying on the screen, let's add an event
-// listener that will randomly select a fact from the clicked animal's array of
-// facts that we have stored in `animals`.
+// Currently, whenever we click an animal, our event listener will grab a
+// random fact. But we also want to display this fact on the page.
 
-// Between `animals` and `images`, let's write a function and name it
-// `displayFact`. We'll need to pass the event, which we'll call `e`, as an
-// argument.
+// First, in `animalFacts` let's create a `<p>` element below `images`. We'll
+// give it an`id` attribute and set its value to 'fact'. This is where we'll
+// place the fact we grab with our `displayFact` event listener.
 
-// `e.target.alt` will be used to grab the name of the animal that was clicked
-// on. We can use this to key into our `animals` object and grab the animal's
-// information. Let's declare a `selectedAnimal` constant, and set its value to
-// `animals[e.target.alt]`
+// On the line after `funFact` in the event listener, place this line:
+// document.getElementById('fact').innerHTML = funFact;
 
-// On the next line, create an `optionIndex` constant. Use the following code
-// as its value:
-    // Math.floor(Math.random() * selectedAnimal.facts.length)
-// This will allow us to randomly generate a number based on the length of the
-// array of the selected animal's facts.
+// This will place the fact inside of the`<p>` element we just created.
 
-// Finally, underneath this, create a `funFact` constant. As its value, use the
-// index we generate from `optionIndex` to grab a fact from the selected
-// animal's `facts` key in `animals`.
+// Finally, Add an `onClick` attribute to each `<image />` in the *for...each*
+// statement. Set its value to the function we just created.
 
+// Now run the code and click on an animal.We should see a fact pop up on the
+// screen!
 
 
 
 // Hint:
-// Above `images`:
-    // function displayFact(e) {
-    //     const selectedAnimal = animals[e.target.alt];
-    //     const optionIndex = Math.floor(Math.random() * selectedAnimal.facts.length);
-    //     const funFact = selectedAnimal.facts[optionIndex];
-    // };
+// Below `funFact` in the `displayFact` function:
+    // document.getElementById('fact').innerHTML = funFact;
 
+// In the `<img/>` element in the *for...each* statement:
+    // onClick = { displayFact }
+
+// Underneath `{background}` in `animalFacts`:
+    // <p id='fact'></p>
 
 
 
@@ -69,6 +64,7 @@ function displayFact(e) {
     const selectedAnimal = animals[e.target.alt];
     const optionIndex = Math.floor(Math.random() * selectedAnimal.facts.length);
     const funFact = selectedAnimal.facts[optionIndex];
+    document.getElementById('fact').innerHTML = funFact;
 };
 
 const images = [];
@@ -81,6 +77,7 @@ for (const animal in animals) {
             src={animals[animal].image}
             aria-label={animal}
             role='button'
+            onClick={displayFact}
         />
     )
 };
@@ -89,6 +86,7 @@ const animalFacts = (
     <div>
         <h1>{title === '' ? 'Click an animal for a fun fact!' : title}</h1>
         {background}
+        <p id='fact'></p>
         <div className='animals'>
             {images}
         </div>
