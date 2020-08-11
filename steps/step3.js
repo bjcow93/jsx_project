@@ -11,6 +11,7 @@
 // Then, replace the JSX expression in the render method with the variable we 
 // just declared.
 
+
 // Hint:
 // const animalFacts = <h1>"Click an animal for a fun fact!"</h1>
 
@@ -18,6 +19,7 @@
 //     animalFacts,
 //     document.getElementById('root')
 // );
+
 
 // Solution code:
 import React from 'react';

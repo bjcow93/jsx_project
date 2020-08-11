@@ -6,10 +6,12 @@
 // Next, replace the words between the `<h1></h1>` tags with the `title` 
 // variable.
 
+
 // Hint:
 // const title = "Click an animal for a fun fact!";
 
 // const animalFacts = <h1>{title}</h1>
+
 
 // Solution code:
 import React from 'react';

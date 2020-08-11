@@ -1,6 +1,7 @@
 // Task:
 // Now let's add a background!
 
+
 // Hint:
 // const background = (
 //     <img
@@ -9,6 +10,7 @@
 //         src='/images/ocean.jpg'
 //     />
 // );
+
 
 // Solution code:
 import React from 'react';

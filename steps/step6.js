@@ -1,5 +1,6 @@
 // Task:
 
+
 // Hint:
 // const animalFacts = (
 //     <div>
@@ -7,6 +8,7 @@
 //         {background}
 //     </div>
 // );
+
 
 // Solution code:
 import React from 'react';

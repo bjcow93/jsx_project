@@ -7,11 +7,13 @@
 // When finished, click run. If all goes well, we should see the text 'Click an
 // animal for a fun fact!' appear on the screen!
 
+
 // Hint:
 // ReactDOM.render(
 //     <h1>Click an animal for a fun fact!</h1>,
 //     document.getElementById('root')
 // );
+
 
 // Solution code:
 import React from 'react';
